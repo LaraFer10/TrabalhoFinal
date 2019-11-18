@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login2"
+    tools:context=".Login">
+
+
+
+    <EditText
+        android:layout_width="309dp"
+        android:layout_height="40dp"
+        android:paddingLeft="10dp"
+        android:background="@drawable/bg_form_field_top"
+        android:layout_centerInParent="true"
+        android:hint="Username"
+        android:id="@+id/edtUser"
+        />
+
+
+    <EditText
+        android:id="@+id/edtSenha"
+        android:layout_width="309dp"
+        android:layout_height="40dp"
+        android:layout_below="@id/edtUser"
+        android:layout_centerInParent="true"
+        android:paddingLeft="10dp"
+        android:layout_marginTop="-1dp"
+        android:background="@drawable/bg_form_field_top"
+        android:inputType="textPassword"
+        android:hint="Senha"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/btnCad"
+        android:layout_marginBottom="40px"
+        android:layout_centerInParent="true"
+        android:background="@color/branco"
+        android:text="entrar"
+        android:id="@+id/btnEntrar"
+        android:onClick="onClick"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="60px"
+        android:paddingLeft="50px"
+        android:paddingRight="50px"
+        android:layout_centerInParent="true"
+        android:text="Cadastrar"
+        android:id="@+id/btnCad"
+        android:onClick="onClick"
+        android:background="@color/branco"/>
+
+</RelativeLayout>

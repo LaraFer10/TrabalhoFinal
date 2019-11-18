@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Home">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200px"
+        android:background="@color/lilasClaro"
+        >
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200px"
+            android:src="@drawable/barra"
+            android:id="@+id/barra"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="900px"
+
+        >
+
+        <ImageView
+            android:id="@+id/iconeperfil"
+            android:layout_width="96dp"
+            android:layout_height="103dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="30dp"
+            android:src="@drawable/iconeperfil1" />
+
+
+
+        <TextView
+            android:id="@+id/nomeUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="220dp"
+            android:text="Nome do usuario"
+            android:textSize="50px" />
+
+        <Button
+            android:layout_width="175dp"
+            android:layout_height="84dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerInParent="true"
+            android:id="@+id/btnRec"
+            android:onClick="onClick"
+            android:text="Adicionar   Recomendações"
+            android:textSize="40px" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="900px"
+        android:layout_alignParentBottom="true"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginLeft="30dp"
+            android:text="Lista de Recomendações"
+            android:textSize="60px" />
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="50dp"
+            android:id="@+id/listaRecomendacao"></ListView>
+    </RelativeLayout>
+
+
+
+
+
+</RelativeLayout>
