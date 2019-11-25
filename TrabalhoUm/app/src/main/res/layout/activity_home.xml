@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Home">
+    tools:context=".HomeActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -21,7 +21,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="900px"
+        android:layout_height="980px"
 
         >
 
@@ -45,15 +45,45 @@
             android:text="Nome do usuario"
             android:textSize="50px" />
 
-        <Button
-            android:layout_width="175dp"
-            android:layout_height="84dp"
-            android:layout_alignParentBottom="true"
-            android:layout_centerInParent="true"
-            android:id="@+id/btnRec"
+
+        <ImageButton
+            android:id="@+id/btnAddRec"
+            android:layout_width="96dp"
+            android:layout_height="103dp"
+            android:layout_marginLeft="30dp"
+            android:layout_below="@id/nomeUsuario"
             android:onClick="onClick"
-            android:text="Adicionar   Recomendações"
-            android:textSize="40px" />
+            android:text="Ver Usuários"
+            android:src="@drawable/verified" />
+        <TextView
+            android:id="@+id/txtAddrec"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_below="@id/btnAddRec"
+            android:text="Add Recomendação"
+            android:textSize="30px" />
+
+        <ImageButton
+            android:id="@+id/btnVerUsers"
+            android:layout_width="96dp"
+            android:layout_height="103dp"
+            android:layout_marginLeft="30dp"
+            android:layout_below="@id/nomeUsuario"
+            android:layout_toRightOf="@+id/btnAddRec"
+            android:onClick="onClick"
+            android:text="Ver Usuários"
+            android:src="@drawable/friends" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_toRightOf="@id/txtAddrec"
+            android:layout_below="@id/btnVerUsers"
+            android:text="Ver Usuarios"
+            android:textSize="30px" />
+
 
     </RelativeLayout>
 

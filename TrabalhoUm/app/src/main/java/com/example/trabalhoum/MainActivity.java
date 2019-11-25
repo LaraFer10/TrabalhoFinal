@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
 
-    ArrayList<Usuario> usuarios = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void mostraLogin(){
         Intent it = new Intent(this, Login.class);
-        it.putParcelableArrayListExtra("usuarios", usuarios);
         startActivity(it);
     }
 }

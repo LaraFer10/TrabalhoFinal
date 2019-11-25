@@ -9,10 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Usuarios"></activity>
-        <activity android:name=".Home" />
-        <activity android:name=".Cadastro" />
-        <activity android:name=".Login" />
+        <activity android:name=".CadRecomendaActivity"></activity>
+        <activity android:name=".UsuariosActivity"></activity>
+        <activity android:name=".HomeActivity"></activity>
+        <activity android:name=".CadastroActivity"></activity>
+        <activity android:name=".Login"></activity>
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppCompat.TelaCheia">

@@ -1,16 +1,37 @@
 package com.example.trabalhoum;
 
 public class Recomendacao {
+    public int id;
+    public int usuarioId;
     public String nome;
-    public String classificacao;
+    public String categoria;
     public String descricao;
-    public String ondeAssistir;
+    public String ondeEncontrar;
 
-    public Recomendacao(String nome, String classificacao, String descricao, String ondeAssistir) {
+    public Recomendacao() {
+    }
+
+    public Recomendacao(String nome, String categoria, String descricao, String ondeEncontrar) {
         this.nome = nome;
-        this.classificacao = classificacao;
+        this.categoria = categoria;
         this.descricao = descricao;
-        this.ondeAssistir = ondeAssistir;
+        this.ondeEncontrar = ondeEncontrar;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getUsuarioId() {
+        return usuarioId;
+    }
+
+    public void setUsuarioId(int usuarioId) {
+        this.usuarioId = usuarioId;
     }
 
     public String getNome() {
@@ -21,12 +42,12 @@ public class Recomendacao {
         this.nome = nome;
     }
 
-    public String getClassificacao() {
-        return classificacao;
+    public String getCategoria() {
+        return categoria;
     }
 
-    public void setClassificacao(String classificacao) {
-        this.classificacao = classificacao;
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
     }
 
     public String getDescricao() {
@@ -37,11 +58,11 @@ public class Recomendacao {
         this.descricao = descricao;
     }
 
-    public String getOndeAssistir() {
-        return ondeAssistir;
+    public String getOndeEncontrar() {
+        return ondeEncontrar;
     }
 
-    public void setOndeAssistir(String ondeAssistir) {
-        this.ondeAssistir = ondeAssistir;
+    public void setOndeEncontrar(String ondeEncontrar) {
+        this.ondeEncontrar = ondeEncontrar;
     }
 }

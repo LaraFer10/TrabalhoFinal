@@ -10,15 +10,18 @@ import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class UsuariosAdapter extends RecyclerView.Adapter {
     private Context context;
-    private List<Usuario> usuariosCadastrados;
+    private ArrayList<Usuario> usuariosCadastrados;
+    private UsuarioDAO userDAO;
 
-    public UsuariosAdapter(Context context, List<Usuario> usuariosCadastrados) {
+    public UsuariosAdapter(Context context) {
         this.context = context;
-        this.usuariosCadastrados = usuariosCadastrados;
+        userDAO = new UsuarioDAO(context);
+        this.usuariosCadastrados = userDAO.buscaUsuarios();
     }
 
     public UsuariosAdapter() {

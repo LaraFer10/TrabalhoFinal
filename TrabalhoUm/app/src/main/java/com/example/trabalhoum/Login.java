@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,46 +14,51 @@ import java.util.ArrayList;
 
 public class Login extends AppCompatActivity implements View.OnClickListener {
 
-    EditText senha, user;
-    Button btnEntrar, btnCad;
-    ArrayList<Usuario> usuarios = new ArrayList<>();
-
+    private EditText senha, user;
+    private Button btnEntrar, btnCad;
+    private ArrayList<Usuario> usuarios = new ArrayList<>();
+    private UsuarioDAO userDAO;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().hide();
+        //getSupportActionBar().hide();
         setContentView(R.layout.activity_login);
         senha = findViewById(R.id.edtSenha);
         user = findViewById(R.id.edtUser);
         btnCad = findViewById(R.id.btnCad);
         btnEntrar = findViewById(R.id.btnEntrar);
+
+        userDAO = new UsuarioDAO(this);
     }
 
     @Override
     public void onClick(View view) {
-        Intent itRecebe = new Intent();
-        itRecebe = getIntent();
-        usuarios = itRecebe.getParcelableArrayListExtra("usuarios");
+        usuarios = userDAO.buscaUsuarios();
+
         String senha1 = String.valueOf(senha);
         String user1 = String.valueOf(user);
-        Usuario user0 = new Usuario();
-        user0.setUser("Larinha");
-        Recomendacao r1 = new Recomendacao("The Good Place", "Serie","Eu gosoto muito dessa serie e ela é mais engraçada dublada!", "Netflix, Superflix");
-        Recomendacao r2 = new Recomendacao("@ifyouhigh", "Instagram","Nessa conta do insta eles postam videos muito loucos que mechem com a ilusão de optica e afins. Fico horas vidrada kkkk", "Instagram");
-        user0.setSenha("larinha12");
-        user0.recomendacoes.add(r1);
-        user0.recomendacoes.add(r2);
-        usuarios.add(user0);
         if(view.getId() == btnCad.getId()){
-            Intent it1 = new Intent(this, Cadastro.class);
-            it1.putParcelableArrayListExtra("usuarios", usuarios);
-            startActivity(it1);
+
+                    Intent it1 = new Intent(this, CadastroActivity.class);
+                    startActivity(it1);
+
         }
         if(view.getId() == btnEntrar.getId()){
-                    Intent it2 = new Intent(this, Home.class);
-                    it2.putParcelableArrayListExtra("usuarios", usuarios);
+            for (int i=0;i<usuarios.size();i++) {
+                    Usuario u = new Usuario();
+                if (usuarios.get(i).getSenha() == senha1 || usuarios.get(i).getUser() == user1) {
+                    Toast.makeText(this, "entrou", Toast.LENGTH_SHORT).show();
+                    u.setUser(usuarios.get(i).getUser());
+                    u.setProfissao(usuarios.get(i).getProfissao());
+                    u.setIdade(usuarios.get(i).getIdade());
+                    u.setSenha(usuarios.get(i).getSenha());
+                    Intent it2 = new Intent(this, HomeActivity.class);
+                    it2.putExtra("usuario", (Parcelable) u);
                     startActivity(it2);
-
+               } else {
+                    Toast.makeText(this, "Usuario ou senha incorretos!", Toast.LENGTH_SHORT).show();
+                }
+            }
         }
     }
 }

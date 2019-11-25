@@ -4,8 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/cad2"
-    tools:context=".CadastroActivity">
+    android:background="@drawable/addrecomendacao"
+    tools:context=".CadRecomendaActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200px"
+        android:background="@color/lilasClaro"
+        >
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200px"
+            android:src="@drawable/barra"
+            android:id="@+id/barra"/>
+        <ImageButton
+            android:id="@+id/btnVoltaPerf"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:onClick="onClick"
+            android:src="@drawable/user"/>
+
+    </RelativeLayout>
 
 
     <EditText
@@ -14,9 +33,9 @@
         android:paddingLeft="10dp"
         android:background="@drawable/bg_form_field_top"
         android:layout_centerInParent="true"
-        android:id="@+id/edtUser1"
-        android:hint="Username"
-        android:nextFocusDown="@id/edtProf1"
+        android:id="@+id/edtNome"
+        android:hint="Nome"
+        android:nextFocusDown="@id/edtCat"
         />
 
     <EditText
@@ -25,9 +44,9 @@
         android:paddingLeft="10dp"
         android:background="@drawable/bg_form_field_top"
         android:layout_centerInParent="true"
-        android:id="@+id/edtProf1"
-        android:layout_below="@id/edtUser1"
-        android:hint="Profissão"
+        android:id="@+id/edtCat"
+        android:layout_below="@id/edtNome"
+        android:hint="Categoria"
         android:nextFocusDown="@id/edtIdade1"
         />
     <EditText
@@ -36,29 +55,28 @@
         android:paddingLeft="10dp"
         android:background="@drawable/bg_form_field_top"
         android:layout_centerInParent="true"
-        android:id="@+id/edtIdade1"
-        android:layout_below="@id/edtProf1"
-        android:hint="Idade"
-
-        android:nextFocusDown="@id/edtSenha1"
+        android:id="@+id/edtOnde"
+        android:layout_below="@id/edtCat"
+        android:hint="Onde podemos encontrar?"
+        android:nextFocusDown="@id/edtDesc"
         />
     <EditText
         android:layout_width="309dp"
-        android:layout_height="40dp"
+        android:layout_height="140dp"
         android:paddingLeft="10dp"
         android:background="@drawable/bg_form_field_top"
         android:layout_centerInParent="true"
         android:inputType="textPassword"
-        android:id="@+id/edtSenha1"
-        android:layout_below="@id/edtIdade1"
-        android:hint="Senha"
+        android:id="@+id/edtDesc"
+        android:layout_below="@id/edtOnde"
+        android:hint="Diga porque é interessante conhecer!"
         />
 
     <Button
-        android:id="@+id/btnCad1"
+        android:id="@+id/btnCadR"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/edtSenha1"
+        android:layout_below="@id/edtDesc"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="40px"
         android:layout_marginTop="60px"
@@ -66,18 +84,7 @@
         android:paddingLeft="50px"
         android:paddingRight="50px"
         android:onClick="onClick"
-        android:text="cadastrar" />
+        android:text="adicionar recomendação" />
 
-    <Button
-        android:id="@+id/btnLogin1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/btnCad1"
-        android:onClick="onClick"
-        android:background="@color/branco"
-        android:paddingLeft="50px"
-        android:paddingRight="50px"
-        android:text="Fazer Login" />
 
 </RelativeLayout>
