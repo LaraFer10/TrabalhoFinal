@@ -26,7 +26,7 @@ public class UsuarioDAO {
         values.put("idade", usuario.getIdade());
         values.put("profissao", usuario.getProfissao());
 
-        banco.insert("trabalhoumdb", null, values);
+        banco.insert("usuario", null, values);
     }
 
     public ArrayList<Usuario> buscaUsuarios(){

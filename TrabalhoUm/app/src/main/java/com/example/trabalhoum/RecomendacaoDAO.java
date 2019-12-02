@@ -23,7 +23,7 @@ public class RecomendacaoDAO {
         values.put("categoria", recomendacao.getCategoria());
         values.put("ondeEncontrar", recomendacao.getOndeEncontrar());
         values.put("usuarioId", recomendacao.getUsuarioId());
-        banco.insert("trabalhoumdb", null, values);
+        banco.insert("recomendacao", null, values);
     }
 
     public ArrayList<Recomendacao> buscaRecomendacoesDoUsuario(int id){

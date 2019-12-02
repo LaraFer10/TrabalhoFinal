@@ -12,6 +12,7 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
@@ -20,6 +21,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     private ListView lista;
     private TextView user;
     private RecomendacaoDAO recDAO;
+    private Usuario usuario;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,11 +33,19 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         btnusers = findViewById(R.id.btnVerUsers);
         lista = findViewById(R.id.listaRecomendacao);
         Intent itRecebe = getIntent();
-        Usuario usuario = itRecebe.getExtras().getParcelable("usuario");
+        this.usuario = itRecebe.getExtras().getParcelable("usuario");
         recDAO = new RecomendacaoDAO(this);
-        user.setText(usuario.getUser()+" | "+usuario.getProfissao()+" | "+usuario.getIdade());
+        user.setText(usuario.getUser());
 
-        ArrayAdapter recomendacoes = new ArrayAdapter(this, android.R.layout.simple_list_item_1, recDAO.buscaRecomendacoesDoUsuario(usuario.getId()));
+        ArrayList<Recomendacao> recomendacao = recDAO.buscaRecomendacoesDoUsuario(usuario.getId());
+
+        ArrayList<String> nomeRecs = new ArrayList<>();
+        for (int i=0;i<recomendacao.size();i++){
+            nomeRecs.add(recomendacao.get(i).getNome());
+        }
+
+        ArrayAdapter<String> recomendacoes = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1, android.R.id.text1,
+                nomeRecs);
         lista.setAdapter(recomendacoes);
     }
 
@@ -43,7 +53,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         if(view.getId() == btnr.getId()){
             Intent it = new Intent(this, CadRecomendaActivity.class);
-            it.putExtra("usuario", (Parcelable) user);
+            it.putExtra("usuario", (Parcelable) usuario);
             startActivity(it);
         }else if(view.getId() == btnusers.getId()){
             Intent it2 = new Intent(this, UsuariosActivity.class);
